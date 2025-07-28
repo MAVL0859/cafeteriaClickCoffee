@@ -65,3 +65,34 @@ document.addEventListener('DOMContentLoaded', function() {
         history.replaceState(null, null, window.location.pathname);
     }
 });
+
+// Notificación de contacto
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.form-contacto');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const noti = document.getElementById('notificacion-contacto');
+      const mensaje = document.getElementById('mensaje-notificacion');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        const result = await res.json();
+        console.log(result);
+        if (res.ok) {
+          mensaje.textContent = '¡Mensaje enviado correctamente! Gracias por contactarnos.';
+          form.reset();
+        } else {
+          mensaje.textContent = 'Ocurrió un error al enviar el mensaje. Intenta nuevamente.';
+        }
+      } catch {
+        mensaje.textContent = 'No se pudo enviar el mensaje. Revisa tu conexión.';
+      }
+      noti.style.display = 'flex';
+    });
+  }
+});
