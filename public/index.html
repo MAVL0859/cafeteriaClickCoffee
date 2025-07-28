@@ -151,7 +151,7 @@
                         <li><i class="fas fa-clock"></i> Lunes a Sábado: 8:00 - 20:00 | Domingo: 9:00 - 14:00</li>
                     </ul>
                 </div>
-                <form class="form-contacto" action="https://formspree.io/f/xeozkobl" method="POST" autocomplete="off">
+                <form class="form-contacto" action="https://formspree.io/f/xeozkobl" method="POST" autocomplete="on">
                     <label for="nombre">Nombre: </label>
                     <input type="text" id="nombre" name="nombre" placeholder="¿Cómo te llamas?" required>
                     <label for="email">Correo electrónico: </label>
@@ -161,6 +161,11 @@
                         required></textarea>
                     <button type="submit">Enviar mensaje</button>
                 </form>
+                <div id="notificacion-contacto" class="notificacion-contacto" style="display:none;">
+                    <span id="mensaje-notificacion"></span>
+                    <button
+                        onclick="document.getElementById('notificacion-contacto').style.display='none'">Cerrar</button>
+                </div>
             </div>
         </section>
     </main>
