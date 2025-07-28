@@ -702,7 +702,7 @@ footer {
     padding: 0.8em;
     font-size: 1em;
     font-family: inherit;
-    resize: vertical;
+    resize: none;
 }
 
 .form-contacto input:focus,
